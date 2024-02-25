@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+  <param name="/use_sim_time" value="true"/>
+
+  <param name="robot/name" value="mkROS" />
+	<param name="robot_description" textfile="$(find system_setup)/robotmodel.urdf" />
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+   
+  <node pkg="manifold_calibration" type="manifold_calibration_node" name="manifold_calibration_node" output="screen">
+    <!-- ROS parameters-->
+    <param name="left_encoder_topic" type="string" value="/makeblock/lwheel" />
+    <param name="right_encoder_topic" type="string" value="/makeblock/rwheel" />
+
+    <!-- Optimization parameters-->
+    <param name="iterations" type="int" value="40" />
+    
+    <!-- Calibration parameters-->
+    <param name="radius_left" type="double" value="0.045" /> <!-- Wheel radius in m -->
+    <param name="radius_right" type="double" value="0.045" /> <!-- Wheel radius in m -->
+    <param name="tics_per_revolution" type="int" value="360" />
+    <param name="baseline" type="double" value="0.10" /> <!-- Axle length in m -->
+
+    <param name="sensor_x" type="double" value="0.0" /> <!-- Lidar pose x -->
+    <param name="sensor_y" type="double" value="0.0" /> <!-- Lidar pose y -->
+    <param name="sensor_theta" type="double" value="0.5" /> <!-- Lidar pose theta -->
+
+  </node>
+
+  <!-- launch-prefix="valgrind -leak-check=full" -->
+    
+  
+</launch>
