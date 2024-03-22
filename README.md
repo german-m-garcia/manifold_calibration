@@ -1,5 +1,6 @@
 # manifold_calibration
-ROS package for calibrating a differential drive mobile base with a Lidar sensor.
+ROS package for calibrating a differential drive mobile base with a Lidar sensor for the mk-ros project:
+https://german-m-garcia.gitbook.io/mk-ros/
 
 ## Recording data
 
